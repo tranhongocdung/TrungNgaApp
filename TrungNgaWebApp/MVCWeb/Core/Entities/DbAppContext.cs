@@ -30,12 +30,15 @@ namespace MVCWeb.Core.Entities
         {
             // Mappings
             modelBuilder.Configurations.Add(new UserMapping());
+            modelBuilder.Configurations.Add(new TransportDirectionMapping());
+            modelBuilder.Configurations.Add(new TransportMapping());
+            modelBuilder.Configurations.Add(new SeatMapping());
+            modelBuilder.Configurations.Add(new CoachMapping());
             modelBuilder.Configurations.Add(new BookMapping());
             modelBuilder.Configurations.Add(new BookLogMapping());
             modelBuilder.Configurations.Add(new BookInfoMapping());
 
             base.OnModelCreating(modelBuilder);
-
         }
 
         public new void Dispose()
@@ -43,11 +46,5 @@ namespace MVCWeb.Core.Entities
 
         }
 
-
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<OrderStatus> OrderStatuses { get; set; }
     }
 }

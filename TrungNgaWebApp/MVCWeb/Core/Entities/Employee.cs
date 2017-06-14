@@ -1,16 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
 
 namespace MVCWeb.Core.Entities
 {
-    [Table("Employee")]
     public class Employee
     {
-        [Key]
         public int Id { get; set; }
-
         public string Name { get; set; }
         public int EmployeeType { get; set; }
+
+        public virtual ICollection<Transport> TransportsForDriver { get; set; }
+        public virtual ICollection<Transport> TransportsForAssistant { get; set; }
 
     }
 }

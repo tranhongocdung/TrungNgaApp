@@ -1,15 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
 
 namespace MVCWeb.Core.Entities
 {
-    [Table("Coach")]
     public class Coach
     {
-        [Key]
         public int Id { get; set; }
-
         public string Name { get; set; }
+
+        public virtual ICollection<Transport> Transports { get; set; }
 
     }
 }

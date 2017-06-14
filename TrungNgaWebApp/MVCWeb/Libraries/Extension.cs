@@ -26,7 +26,7 @@ namespace MVCWeb.Libraries
                 fi.SetValue(destination, fi.GetValue(source));
             }
         }
-        public static ReturnLabel ToReturnLabel(this Customer source, bool full = true)
+        /*public static ReturnLabel ToReturnLabel(this Customer source, bool full = true)
         {
             var label = new ReturnLabel
             {
@@ -42,6 +42,6 @@ namespace MVCWeb.Libraries
                     (!string.IsNullOrEmpty(source.Area) ? " - " + source.Area : "");
             }
             return label;
-        }
+        }*/
     }
 }

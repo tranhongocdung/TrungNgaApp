@@ -153,17 +153,16 @@
     <Compile Include="Core\Entities\TransportDirection.cs" />
     <Compile Include="Core\Entities\Transport.cs" />
     <Compile Include="Core\Entities\Employee.cs" />
-    <Compile Include="Core\Entities\Customer.cs" />
     <Compile Include="Core\Entities\DbAppContext.cs" />
-    <Compile Include="Core\Entities\Order.cs" />
-    <Compile Include="Core\Entities\OrderDetail.cs" />
-    <Compile Include="Core\Entities\OrderStatus.cs" />
     <Compile Include="Core\Entities\Coach.cs" />
     <Compile Include="Core\Entities\Seat.cs" />
-    <Compile Include="Core\Entities\Product.cs" />
     <Compile Include="Core\Entities\BookInfo.cs" />
     <Compile Include="Core\Entities\Book.cs" />
     <Compile Include="Core\Entities\User.cs" />
+    <Compile Include="Core\EntityConfigs\CoachMapping.cs" />
+    <Compile Include="Core\EntityConfigs\SeatMapping.cs" />
+    <Compile Include="Core\EntityConfigs\TransportMapping.cs" />
+    <Compile Include="Core\EntityConfigs\TransportDirectionMapping.cs" />
     <Compile Include="Core\EntityConfigs\BookLogMapping.cs" />
     <Compile Include="Core\EntityConfigs\UserMapping.cs" />
     <Compile Include="Core\EntityConfigs\BookInfoMapping.cs" />
@@ -173,17 +172,11 @@
     <Compile Include="Core\IRepositories\ITransportRepository.cs" />
     <Compile Include="Core\IRepositories\ITransportDirectionRepository.cs" />
     <Compile Include="Core\IRepositories\IGenericRepository.cs" />
-    <Compile Include="Core\IRepositories\IOrderDetailRepository.cs" />
-    <Compile Include="Core\IRepositories\ICustomerRepository.cs" />
-    <Compile Include="Core\IRepositories\IOrderRepository.cs" />
     <Compile Include="Core\IServices\IBookService.cs" />
     <Compile Include="Core\Repositories\BookRepository.cs" />
     <Compile Include="Core\Repositories\TransportRepository.cs" />
     <Compile Include="Core\Repositories\TransportDirectionRepository.cs" />
-    <Compile Include="Core\Repositories\CustomerRepository.cs" />
     <Compile Include="Core\Repositories\GenericRepository.cs" />
-    <Compile Include="Core\Repositories\OrderDetailRepository.cs" />
-    <Compile Include="Core\Repositories\OrderRepository.cs" />
     <Compile Include="Core\ReturnData.cs" />
     <Compile Include="Core\ReturnLabel.cs" />
     <Compile Include="Core\Security\BaseViewPage.cs" />
@@ -202,8 +195,6 @@
     <Compile Include="Controllers\DataSourceController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -220,12 +211,7 @@
     <Compile Include="Libraries\RemoveWhiteSpace.cs" />
     <Compile Include="Libraries\Utility.cs" />
     <Compile Include="Models\BookIndexViewModel.cs" />
-    <Compile Include="Models\CustomerEditViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\CustomerManageViewModel.cs" />
-    <Compile Include="Models\OrderManageViewModel.cs" />
-    <Compile Include="Models\OrderPrintViewModel.cs" />
-    <Compile Include="Models\OrderEditViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\BasePagingViewModel.cs" />
   </ItemGroup>
