@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using MVCWeb.AppDataLayer.Entities;
-using MVCWeb.AppDataLayer.IRepositories;
-using MVCWeb.AppDataLayer.IServices;
-using MVCWeb.AppDataLayer.Repositories;
-using MVCWeb.AppDataLayer.Services;
+using MVCWeb.Core.Entities;
+using MVCWeb.Core.IRepositories;
+using MVCWeb.Core.IServices;
+using MVCWeb.Core.Repositories;
+using MVCWeb.Core.Services;
 using MVCWeb.Libraries;
 using MVCWeb.Models;
 

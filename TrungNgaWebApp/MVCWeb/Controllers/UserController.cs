@@ -3,8 +3,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using MVCWeb.AppDataLayer.Entities;
-using MVCWeb.AppDataLayer.Security;
+using MVCWeb.Core.Entities;
+using MVCWeb.Core.Security;
 using MVCWeb.Models;
 using Newtonsoft.Json;
 

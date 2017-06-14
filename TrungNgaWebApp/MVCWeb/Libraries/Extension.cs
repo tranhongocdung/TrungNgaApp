@@ -5,8 +5,8 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using MVCWeb.AppDataLayer;
-using MVCWeb.AppDataLayer.Entities;
+using MVCWeb.Core;
+using MVCWeb.Core.Entities;
 
 namespace MVCWeb.Libraries
 {

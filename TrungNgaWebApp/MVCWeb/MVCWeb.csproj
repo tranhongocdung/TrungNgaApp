@@ -149,44 +149,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppDataLayer\Entities\BookLog.cs" />
-    <Compile Include="AppDataLayer\Entities\TransportDirection.cs" />
-    <Compile Include="AppDataLayer\Entities\Transport.cs" />
-    <Compile Include="AppDataLayer\Entities\Employee.cs" />
-    <Compile Include="AppDataLayer\Entities\Customer.cs" />
-    <Compile Include="AppDataLayer\Entities\DbAppContext.cs" />
-    <Compile Include="AppDataLayer\Entities\Order.cs" />
-    <Compile Include="AppDataLayer\Entities\OrderDetail.cs" />
-    <Compile Include="AppDataLayer\Entities\OrderStatus.cs" />
-    <Compile Include="AppDataLayer\Entities\Coach.cs" />
-    <Compile Include="AppDataLayer\Entities\Seat.cs" />
-    <Compile Include="AppDataLayer\Entities\Product.cs" />
-    <Compile Include="AppDataLayer\Entities\BookInfo.cs" />
-    <Compile Include="AppDataLayer\Entities\Book.cs" />
-    <Compile Include="AppDataLayer\Entities\User.cs" />
-    <Compile Include="AppDataLayer\EntityConfigs\BookMapping.cs" />
-    <Compile Include="AppDataLayer\FilterParams.cs" />
-    <Compile Include="AppDataLayer\IRepositories\IBookRepository.cs" />
-    <Compile Include="AppDataLayer\IRepositories\ITransportRepository.cs" />
-    <Compile Include="AppDataLayer\IRepositories\ITransportDirectionRepository.cs" />
-    <Compile Include="AppDataLayer\IRepositories\IGenericRepository.cs" />
-    <Compile Include="AppDataLayer\IRepositories\IOrderDetailRepository.cs" />
-    <Compile Include="AppDataLayer\IRepositories\ICustomerRepository.cs" />
-    <Compile Include="AppDataLayer\IRepositories\IOrderRepository.cs" />
-    <Compile Include="AppDataLayer\IServices\IBookService.cs" />
-    <Compile Include="AppDataLayer\Repositories\BookRepository.cs" />
-    <Compile Include="AppDataLayer\Repositories\TransportRepository.cs" />
-    <Compile Include="AppDataLayer\Repositories\TransportDirectionRepository.cs" />
-    <Compile Include="AppDataLayer\Repositories\CustomerRepository.cs" />
-    <Compile Include="AppDataLayer\Repositories\GenericRepository.cs" />
-    <Compile Include="AppDataLayer\Repositories\OrderDetailRepository.cs" />
-    <Compile Include="AppDataLayer\Repositories\OrderRepository.cs" />
-    <Compile Include="AppDataLayer\ReturnData.cs" />
-    <Compile Include="AppDataLayer\ReturnLabel.cs" />
-    <Compile Include="AppDataLayer\Security\BaseViewPage.cs" />
-    <Compile Include="AppDataLayer\Security\CustomAuthorizeAttribute.cs" />
-    <Compile Include="AppDataLayer\Security\CustomPrincipal.cs" />
-    <Compile Include="AppDataLayer\Services\BookService.cs" />
+    <Compile Include="Core\Entities\BookLog.cs" />
+    <Compile Include="Core\Entities\TransportDirection.cs" />
+    <Compile Include="Core\Entities\Transport.cs" />
+    <Compile Include="Core\Entities\Employee.cs" />
+    <Compile Include="Core\Entities\Customer.cs" />
+    <Compile Include="Core\Entities\DbAppContext.cs" />
+    <Compile Include="Core\Entities\Order.cs" />
+    <Compile Include="Core\Entities\OrderDetail.cs" />
+    <Compile Include="Core\Entities\OrderStatus.cs" />
+    <Compile Include="Core\Entities\Coach.cs" />
+    <Compile Include="Core\Entities\Seat.cs" />
+    <Compile Include="Core\Entities\Product.cs" />
+    <Compile Include="Core\Entities\BookInfo.cs" />
+    <Compile Include="Core\Entities\Book.cs" />
+    <Compile Include="Core\Entities\User.cs" />
+    <Compile Include="Core\EntityConfigs\BookLogMapping.cs" />
+    <Compile Include="Core\EntityConfigs\UserMapping.cs" />
+    <Compile Include="Core\EntityConfigs\BookInfoMapping.cs" />
+    <Compile Include="Core\EntityConfigs\BookMapping.cs" />
+    <Compile Include="Core\FilterParams.cs" />
+    <Compile Include="Core\IRepositories\IBookRepository.cs" />
+    <Compile Include="Core\IRepositories\ITransportRepository.cs" />
+    <Compile Include="Core\IRepositories\ITransportDirectionRepository.cs" />
+    <Compile Include="Core\IRepositories\IGenericRepository.cs" />
+    <Compile Include="Core\IRepositories\IOrderDetailRepository.cs" />
+    <Compile Include="Core\IRepositories\ICustomerRepository.cs" />
+    <Compile Include="Core\IRepositories\IOrderRepository.cs" />
+    <Compile Include="Core\IServices\IBookService.cs" />
+    <Compile Include="Core\Repositories\BookRepository.cs" />
+    <Compile Include="Core\Repositories\TransportRepository.cs" />
+    <Compile Include="Core\Repositories\TransportDirectionRepository.cs" />
+    <Compile Include="Core\Repositories\CustomerRepository.cs" />
+    <Compile Include="Core\Repositories\GenericRepository.cs" />
+    <Compile Include="Core\Repositories\OrderDetailRepository.cs" />
+    <Compile Include="Core\Repositories\OrderRepository.cs" />
+    <Compile Include="Core\ReturnData.cs" />
+    <Compile Include="Core\ReturnLabel.cs" />
+    <Compile Include="Core\Security\BaseViewPage.cs" />
+    <Compile Include="Core\Security\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Core\Security\CustomPrincipal.cs" />
+    <Compile Include="Core\Services\BookService.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -207,7 +210,7 @@
     </Compile>
     <Compile Include="Libraries\Config.cs" />
     <Compile Include="Libraries\ConvertType.cs" />
-    <Compile Include="AppDataLayer\EntityHelper.cs" />
+    <Compile Include="Core\EntityHelper.cs" />
     <Compile Include="Libraries\Extension.cs" />
     <Compile Include="Libraries\LinqDynamic.cs" />
     <Compile Include="Libraries\PagerExtensions.cs" />
@@ -491,8 +494,8 @@
     <Content Include="Views\Book\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppDataLayer\ExtendingEntities\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Core\ExtendingEntities\" />
     <Folder Include="Files\" />
     <Folder Include="Views\DataSource\" />
   </ItemGroup>

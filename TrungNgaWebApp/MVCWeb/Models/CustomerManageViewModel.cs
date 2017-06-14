@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MVCWeb.AppDataLayer.Entities;
+using MVCWeb.Core.Entities;
 
 namespace MVCWeb.Models
 {

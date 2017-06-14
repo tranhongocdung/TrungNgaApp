@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using MVCWeb.AppDataLayer;
-using MVCWeb.AppDataLayer.Entities;
-using MVCWeb.AppDataLayer.IRepositories;
-using MVCWeb.AppDataLayer.Repositories;
+using MVCWeb.Core;
+using MVCWeb.Core.Entities;
+using MVCWeb.Core.IRepositories;
+using MVCWeb.Core.Repositories;
 using MVCWeb.Libraries;
 using MVCWeb.Models;
 using Newtonsoft.Json;

@@ -76,3 +76,47 @@ D:\Website In .NET\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Uni
 D:\Website In .NET\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Unity.Configuration.xml
 D:\Website In .NET\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
 D:\Website In .NET\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Unity.Mvc5.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\MVCWeb.dll.config
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\MVCWeb.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\MVCWeb.pdb
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Antlr3.Runtime.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\EntityFramework.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\EntityFramework.SqlServer.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Unity.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Newtonsoft.Json.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.Helpers.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.Mvc.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.Optimization.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.Razor.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.WebPages.Deployment.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.WebPages.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.WebPages.Razor.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Unity.Mvc5.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\WebGrease.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\EntityFramework.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\EntityFramework.SqlServer.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.ServiceLocation.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Unity.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.Helpers.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.Mvc.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.Optimization.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.Razor.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.WebPages.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.WebPages.Deployment.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\System.Web.WebPages.Razor.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Antlr3.Runtime.pdb
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\bin\Newtonsoft.Json.xml
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\obj\Debug\MVCWeb.csprojResolveAssemblyReference.cache
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\obj\Debug\MVCWeb.dll
+D:\Projects\TrungNgaApp\TrungNgaWebApp\MVCWeb\obj\Debug\MVCWeb.pdb

@@ -1,8 +1,8 @@
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
-using MVCWeb.AppDataLayer.Entities;
-using MVCWeb.AppDataLayer.IRepositories;
-using MVCWeb.AppDataLayer.Repositories;
+using MVCWeb.Core.Entities;
+using MVCWeb.Core.IRepositories;
+using MVCWeb.Core.Repositories;
 using Unity.Mvc5;
 
 namespace MVCWeb
