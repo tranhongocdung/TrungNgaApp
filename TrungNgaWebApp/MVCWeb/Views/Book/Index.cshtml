@@ -1,0 +1,115 @@
+﻿@model MVCWeb.Models.BookIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12 pl0">
+            <div class="col-md-4 col-sm-4 col-xs-6 pl0">
+                @Html.DropDownListFor(m => m.TransportDirectionId, Model.TransportDirectionItems, new {@class = "form-control", @onchange = "$(this.form).submit();"})
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 pl0">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" id="btnPrevDate">&laquo;</button>
+                    </span>
+                    <input type="text" class="form-control datepicker-control" id="txtRunDateTemp" readonly="readonly">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" id="btnNextDate">&raquo;</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 pl0">
+                @Html.DropDownListFor(m => m.TransportId, Model.TransportItems, new { @class = "form-control", @onchange = "$(this.form).submit();" })
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="bs-callout bs-callout-warning">
+        <h4>Loại xe giường nằm 40 chỗ</h4>
+        <p>
+            Tài xế: <strong class="text-primary">Thành</strong> - Lơ xe: <strong class="text-primary">Hiếu</strong>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <ul class="coach-left col-md-6 pl0">
+        <li class="seat booked col-md-4 col-sm-4 col-xs-6 selected">
+            <div>
+                <div class="seat-label">A11</div>
+                <div class="pick-up-label">38 Nguyễn Tri Phương</div>
+                <div class="book-info-panel">
+                    <p>Bạn Dũng <strong class="text-danger">3G</strong> <strong class="text-large">0938106308</strong></p>
+                    <p>B: <strong class="text-info">Hiền</strong>
+                    </p>
+                </div>
+                <div class="button-panel ">
+                    <button type="button" class="btn btn-circle btn-primary">U</button>
+                    <button type="button" class="btn btn-circle btn-success">M</button>
+                    <button type="button" class="btn btn-circle btn-warning">P</button>
+                    <button type="button" class="btn btn-circle btn-default">X</button>
+                </div>
+                <div class="button-panel hidden">
+                    <button type="button" class="btn btn-circle btn-primary">B</button>
+                </div>
+            </div>
+        </li>
+        <li class="seat col-md-4 col-sm-4 col-xs-6">
+            <div>
+                <div class="seat-label">A11</div>
+                <div class="button-panel">
+                    <button type="button" class="btn btn-circle btn-primary">B</button>
+                </div>
+            </div>
+        </li>
+        <li class="seat col-md-4 col-sm-4 col-xs-6">
+            <div>
+
+            </div>
+        </li>
+        <li class="seat col-md-4 col-sm-4 col-xs-6">
+            <div>
+
+            </div>
+        </li>
+    </ul>
+    <ul class="coach-right col-md-6 pr0">
+        <li class="seat col-md-4 col-sm-4 col-xs-6">
+            <div>
+
+            </div>
+        </li>
+        <li class="seat col-md-4 col-sm-4 col-xs-6">
+            <div>
+
+            </div>
+        </li>
+        <li class="seat col-md-4 col-sm-4 col-xs-6">
+            <div>
+
+            </div>
+        </li>
+        <li class="seat col-md-4 col-sm-4 col-xs-6">
+            <div>
+
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+@section OptionalCss
+{
+    @Styles.Render("~/bundles/bookindex-css")
+}
+
+@section OptionalJs {
+    @Scripts.Render("~/bundles/bookindex-js")
+}
