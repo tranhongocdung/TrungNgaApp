@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using MVCWeb.Core.Entities;
 using MVCWeb.Core.IRepositories;
-using MVCWeb.Core.Repositories;
+using MVCWeb.Core.IServices;
 using Unity.Mvc5;
 
 namespace MVCWeb
@@ -12,7 +15,7 @@ namespace MVCWeb
         public static void RegisterComponents()
         {
             var container = BuildUnityContainer();
-            
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
 
@@ -28,13 +31,51 @@ namespace MVCWeb
 
             //Bind the various domain model services and repositories that e.g. our controllers require         
             //container.BindInRequestScope<IUnitOfWorkManager, UnitOfWorkManager>();
-            container.BindInRequestScope<ITransportDirectionRepository, TransportDirectionRepository>();
-
+            //container.BindInRequestScope<ITransportDirectionRepository, TransportDirectionRepository>();
+            RegisterRepositories(container);
+            RegisterServices(container);
             //container.BindInRequestScope<ISessionHelper, SessionHelper>();
 
             return container;
         }
+
+        private static void RegisterRepositories(IUnityContainer container)
+        {
+            var respositories =
+                AllClasses.FromLoadedAssemblies()
+                    .Where(type => typeof(IWebAppRepository).IsAssignableFrom(type))
+                    .ToList();
+
+            container.RegisterTypes(
+                respositories,
+                FromAllInterfacesIgnore,
+                WithName.Default,
+                WithLifetime.Transient, null, true);
+        }
+
+        private static void RegisterServices(IUnityContainer container)
+        {
+            var services = AllClasses.FromLoadedAssemblies()
+                .Where(type => typeof(IWebAppService).IsAssignableFrom(type))
+                .ToList();
+
+            container.RegisterTypes(
+                services,
+                FromAllInterfacesIgnore,
+                WithName.Default,
+                WithLifetime.Transient, null, true);
+        }
+
+        private static IEnumerable<Type> FromAllInterfacesIgnore(Type type)
+        {
+            var intefaces = WithMappings.FromAllInterfaces(type)
+                .Where(o => o != typeof(IWebAppRepository))
+                .Where(o => o != typeof(IWebAppService))
+                ;
+            return intefaces;
+        }
     }
+
 
     public static class IocExtensions
     {

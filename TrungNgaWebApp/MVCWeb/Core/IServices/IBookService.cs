@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace MVCWeb.Core.IServices
 {
-    public interface IBookService
+    public interface IBookService : IWebAppService
     {
         DateTime GetLatestDateHavingTransport();
     }
