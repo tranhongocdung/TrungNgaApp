@@ -10,7 +10,8 @@ namespace MVCWeb.Core.EntityConfigs
         {
             ToTable("BookLog");
             HasKey(o => o.Id).Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            HasRequired(o => o.Book).WithMany(o => o.BookLogs).HasForeignKey(o => o.BookId);
+            HasRequired(o => o.BookInfo).WithMany(o => o.BookLogs).HasForeignKey(o => o.BookInfoId);
+            HasRequired(o => o.User).WithMany(o => o.BookLogs).HasForeignKey(o => o.UserId);
         }
     }
 }

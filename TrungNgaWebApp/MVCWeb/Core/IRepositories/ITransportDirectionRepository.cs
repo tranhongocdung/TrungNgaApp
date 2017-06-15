@@ -5,6 +5,5 @@ namespace MVCWeb.Core.IRepositories
 {
     public interface ITransportDirectionRepository : IGenericRepository<TransportDirection>
     {
-        List<TransportDirection> GetAll();
     }
 }

@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVCWeb.Core.Entities
 {
@@ -12,5 +10,6 @@ namespace MVCWeb.Core.Entities
         public string Password { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<BookLog> BookLogs { get; set; }
     }
 }

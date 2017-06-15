@@ -11,11 +11,5 @@ namespace MVCWeb.Core.Repositories
         {
             
         }
-
-        public List<TransportDirection> GetAll()
-        {
-            return TableNoTracking.ToList();
-        } 
-
     }
 }

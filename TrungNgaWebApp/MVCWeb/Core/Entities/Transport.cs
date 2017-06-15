@@ -12,6 +12,8 @@ namespace MVCWeb.Core.Entities
         public int Day { get; set; }
         public int Month { get; set; }
         public int Year { get; set; }
+        public int Hour { get; set; }
+        public int Minute { get; set; }
         public bool IsCompleted { get; set; }
         public int TransportDirectionId { get; set; }
         public DateTime RunDate { get; set; }

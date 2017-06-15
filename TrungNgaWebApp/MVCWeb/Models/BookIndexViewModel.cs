@@ -12,9 +12,9 @@ namespace MVCWeb.Models
         }
         public int TransportDirectionId { get; set; }
         public int TransportId { get; set; }
-        public string CurrentDate { get; set; }
+        public string LatestDateHavingTransport { get; set; }
 
-        public List<SelectListItem> TransportDirectionItems { get; set; }
-        public List<SelectListItem> TransportItems { get; set; }
+        public ICollection<SelectListItem> TransportDirectionItems { get; set; }
+        public ICollection<SelectListItem> TransportItems { get; set; }
     }
 }

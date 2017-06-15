@@ -5,12 +5,12 @@ namespace MVCWeb.Core.Entities
     public class BookLog
     {
         public int Id { get; set; }
-        public int BookId { get; set; }
+        public int BookInfoId { get; set; }
         public int UserId { get; set; }
         public DateTime UpdatedDate { get; set; }
         public string LogContent { get; set; }
 
-        public Book Book { get; set; }
-        public User User { get; set; }
+        public virtual BookInfo BookInfo { get; set; }
+        public virtual User User { get; set; }
     }
 }

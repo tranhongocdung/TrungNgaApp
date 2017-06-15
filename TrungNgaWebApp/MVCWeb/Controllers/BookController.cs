@@ -13,28 +13,31 @@ namespace MVCWeb.Controllers
 {
     public class BookController : BaseController
     {
-        private readonly ITransportDirectionRepository _transportDirectionRepository;
+        private readonly ITransportService _transportService;
         private readonly IBookService _bookService;
-        public BookController(ITransportDirectionRepository transportDirectionRepository) 
+        public BookController(
+            ITransportService transportService,
+            IBookService bookService
+            ) 
         {
-            var context = new DbAppContext();
-            _transportDirectionRepository = transportDirectionRepository;
-            _bookService = new BookService();
+            _transportService = transportService;
+            _bookService = bookService;
         }
         [WhitespaceFilter]
         //[CustomAuthorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var model = new BookIndexViewModel();
-            var transportDirectionList = _transportDirectionRepository.GetAll();
-            model.TransportDirectionItems = transportDirectionList.Select(o => new SelectListItem
-            {
-                Value = o.Id.ToString(),
-                Text = o.Name
-            }).ToList();
+            var latestDateHavingTrasport = _transportService.GetLatestDateHavingTransport();
+            var day = latestDateHavingTrasport.Day;
+            var month = latestDateHavingTrasport.Month;
+            var year = latestDateHavingTrasport.Year;
 
-            model.TransportItems = new List<SelectListItem>();
-            model.TransportDirectionId = transportDirectionList.First().Id;
+            //var transportList = _transportService.GetTransports()
+            model.LatestDateHavingTransport = latestDateHavingTrasport.ToString("dd/MM/yyyy");
+            model.TransportDirectionItems = _transportService.GetTransportDirectionsForSelectList();
+            model.TransportDirectionId = int.Parse(model.TransportDirectionItems.First().Value);
+            model.TransportItems = _transportService.GetTransportsForSelectList(day, month, year);
             return View(model);
         }
     }

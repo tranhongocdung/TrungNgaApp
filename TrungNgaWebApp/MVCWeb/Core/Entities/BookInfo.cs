@@ -12,5 +12,6 @@ namespace MVCWeb.Core.Entities
         public int PaymentStatusId { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<BookLog> BookLogs { get; set; }
     }
 }

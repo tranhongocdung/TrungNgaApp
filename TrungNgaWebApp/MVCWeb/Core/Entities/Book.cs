@@ -11,11 +11,11 @@ namespace MVCWeb.Core.Entities
         public int? BookInfoId { get; set; }
         public int CreatedById { get; set; }
         public DateTime CreatedDate { get; set; }
+        public bool IsCancelled { get; set; }
 
         public virtual Transport Transport { get; set; }
         public virtual Seat Seat { get; set; }
         public virtual BookInfo BookInfo { get; set; }
         public virtual User CreatedBy { get; set; }
-        public virtual ICollection<BookLog> BookLogs { get; set; }
     }
 }

@@ -149,6 +149,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\DtoForEntities\TransportDto.cs" />
     <Compile Include="Core\Entities\BookLog.cs" />
     <Compile Include="Core\Entities\TransportDirection.cs" />
     <Compile Include="Core\Entities\Transport.cs" />
@@ -172,7 +173,10 @@
     <Compile Include="Core\IRepositories\ITransportRepository.cs" />
     <Compile Include="Core\IRepositories\ITransportDirectionRepository.cs" />
     <Compile Include="Core\IRepositories\IGenericRepository.cs" />
+    <Compile Include="Core\IRepositories\IWebAppRepository.cs" />
+    <Compile Include="Core\IServices\ITransportService.cs" />
     <Compile Include="Core\IServices\IBookService.cs" />
+    <Compile Include="Core\IServices\IWebAppService.cs" />
     <Compile Include="Core\Repositories\BookRepository.cs" />
     <Compile Include="Core\Repositories\TransportRepository.cs" />
     <Compile Include="Core\Repositories\TransportDirectionRepository.cs" />
@@ -196,6 +200,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Core\Services\TransportService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -481,7 +486,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Core\ExtendingEntities\" />
     <Folder Include="Files\" />
     <Folder Include="Views\DataSource\" />
   </ItemGroup>
