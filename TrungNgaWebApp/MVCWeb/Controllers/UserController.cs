@@ -34,6 +34,7 @@ namespace MVCWeb.Controllers
                     var serializeModel = new CustomPrincipalSerializeModel
                     {
                         UserId = user.Id,
+                        Username = user.Username,
                         DisplayName = user.DisplayName,
                         Roles = roles
                     };
@@ -43,7 +44,7 @@ namespace MVCWeb.Controllers
                              1,
                             user.Username,
                              DateTime.Now,
-                             DateTime.Now.AddMinutes(15),
+                             model.RememberMe ? DateTime.Now.AddMinutes(360) : DateTime.Now.AddMinutes(15),
                              false,
                              userData);
 
@@ -53,7 +54,7 @@ namespace MVCWeb.Controllers
 
                     if (roles.Contains("Admin"))
                     {
-                        return RedirectToAction("Edit", "Order");
+                        return RedirectToAction("Index", "Book");
                     }
                 }
 

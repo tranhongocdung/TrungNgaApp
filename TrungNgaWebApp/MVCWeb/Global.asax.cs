@@ -29,6 +29,7 @@ namespace MVCWeb
                 var newUser = new CustomPrincipal(authTicket.Name)
                 {
                     UserId = serializeModel.UserId,
+                    Username = serializeModel.Username,
                     DisplayName = serializeModel.DisplayName,
                     Roles = serializeModel.Roles
                 };

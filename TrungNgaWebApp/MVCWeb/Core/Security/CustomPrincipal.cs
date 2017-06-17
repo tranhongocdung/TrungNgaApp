@@ -17,6 +17,7 @@ namespace MVCWeb.Core.Security
         }
 
         public int UserId { get; set; }
+        public string Username { get; set; }
         public string DisplayName { get; set; }
         public string[] Roles { get; set; }
     }
@@ -24,6 +25,7 @@ namespace MVCWeb.Core.Security
     public class CustomPrincipalSerializeModel
     {
         public int UserId { get; set; }
+        public string Username { get; set; }
         public string DisplayName { get; set; }
         public string[] Roles { get; set; }
     }

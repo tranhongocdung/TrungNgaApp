@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using MVCWeb.Core.DtoForEntities;
 
 namespace MVCWeb.Models
 {
@@ -16,5 +17,7 @@ namespace MVCWeb.Models
 
         public ICollection<SelectListItem> TransportDirectionItems { get; set; }
         public ICollection<SelectListItem> TransportItems { get; set; }
+        public ICollection<SeatWithBookInfoDto> LeftSeatWithBookInfos { get; set; }
+        public ICollection<SeatWithBookInfoDto> RightSeatWithBookInfos { get; set; }
     }
 }

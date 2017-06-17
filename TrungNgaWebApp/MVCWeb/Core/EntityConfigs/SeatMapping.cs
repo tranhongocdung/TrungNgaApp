@@ -10,6 +10,7 @@ namespace MVCWeb.Core.EntityConfigs
         {
             ToTable("Seat");
             HasKey(o => o.Id).Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            HasRequired(o => o.CoachType).WithMany(o => o.Seats).HasForeignKey(o => o.CoachTypeId);
         }
     }
 }

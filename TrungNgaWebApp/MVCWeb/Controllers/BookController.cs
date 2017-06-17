@@ -1,16 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
-using MVCWeb.Core.Entities;
-using MVCWeb.Core.IRepositories;
 using MVCWeb.Core.IServices;
-using MVCWeb.Core.Repositories;
-using MVCWeb.Core.Services;
+using MVCWeb.Core.Security;
 using MVCWeb.Libraries;
 using MVCWeb.Models;
 
 namespace MVCWeb.Controllers
 {
+    [WhitespaceFilter]
+    [CustomAuthorize(Roles = "Admin")]
     public class BookController : BaseController
     {
         private readonly ITransportService _transportService;
@@ -23,21 +21,25 @@ namespace MVCWeb.Controllers
             _transportService = transportService;
             _bookService = bookService;
         }
-        [WhitespaceFilter]
-        //[CustomAuthorize(Roles = "Admin")]
         public ActionResult Index()
         {
+            ViewBag.CurrentUser = User.DisplayName + " (" + User.Username + ")";
             var model = new BookIndexViewModel();
             var latestDateHavingTrasport = _transportService.GetLatestDateHavingTransport();
             var day = latestDateHavingTrasport.Day;
             var month = latestDateHavingTrasport.Month;
             var year = latestDateHavingTrasport.Year;
 
-            //var transportList = _transportService.GetTransports()
             model.LatestDateHavingTransport = latestDateHavingTrasport.ToString("dd/MM/yyyy");
             model.TransportDirectionItems = _transportService.GetTransportDirectionsForSelectList();
             model.TransportDirectionId = int.Parse(model.TransportDirectionItems.First().Value);
             model.TransportItems = _transportService.GetTransportsForSelectList(day, month, year);
+            if (model.TransportItems.Any())
+            {
+                var seatWithBookInfos = _bookService.GetSeatWithBookInfos(int.Parse(model.TransportItems.First().Value));
+                model.LeftSeatWithBookInfos = seatWithBookInfos.Where(o => o.IsOnLeftSide).ToList();
+                model.RightSeatWithBookInfos = seatWithBookInfos.Where(o => !o.IsOnLeftSide).ToList();
+            }
             return View(model);
         }
     }

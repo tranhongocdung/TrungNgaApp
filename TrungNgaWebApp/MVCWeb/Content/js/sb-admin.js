@@ -1,18 +1,30 @@
 $(function() {
-
-    $('#side-menu').metisMenu();
-
-});
-
-//Loads the correct sidebar on window load,
-//collapses the sidebar on window resize.
-$(function() {
     $(window).bind("load resize", function() {
         var width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
-        if (width < 768) {
-            $("div.sidebar-collapse").addClass("collapse");
-        } else {
-            $("div.sidebar-collapse").removeClass("collapse");
+        if (width >= 1420) {
+            $(".seat").removeAttr("style");
+            $(".coach-left").removeAttr("style").removeClass("pr0").addClass("pull-left");
+            $(".coach-right").removeAttr("style").removeClass("pl0").addClass("pull-right");
+        }
+        if (width >= 1000 && width < 1420) {
+            $(".seat").css("width", "50%");
+            $(".coach-left").removeAttr("style").removeClass("pr0").addClass("pull-left");
+            $(".coach-right").removeAttr("style").removeClass("pl0").addClass("pull-right");
+        }
+        if (width >= 740 && width < 1000) {
+            $(".seat").removeAttr("style");
+            $(".coach-left").css("width", "100%").addClass("pr0");
+            $(".coach-right").css("width", "100%").addClass("pl0");
+        }
+        if (width >= 500 && width < 740) {
+            $(".seat").css("width", "50%");
+            $(".coach-left").css("width", "100%").addClass("pr0");
+            $(".coach-right").css("width", "100%").addClass("pl0");
+        }
+        if (width < 500) {
+            $(".seat").css("width", "100%");
+            $(".coach-left").css("width", "100%").addClass("pr0");
+            $(".coach-right").css("width", "100%").addClass("pl0");
         }
     });
     $(".clear-text").click(function () {

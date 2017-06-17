@@ -149,8 +149,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\DtoForEntities\TransportDto.cs" />
+    <Compile Include="Core\DtoForEntities\SeatWithBookInfoDto.cs" />
     <Compile Include="Core\Entities\BookLog.cs" />
+    <Compile Include="Core\Entities\CoachType.cs" />
     <Compile Include="Core\Entities\TransportDirection.cs" />
     <Compile Include="Core\Entities\Transport.cs" />
     <Compile Include="Core\Entities\Employee.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Core\Entities\BookInfo.cs" />
     <Compile Include="Core\Entities\Book.cs" />
     <Compile Include="Core\Entities\User.cs" />
+    <Compile Include="Core\EntityConfigs\CoachTypeMapping.cs" />
     <Compile Include="Core\EntityConfigs\CoachMapping.cs" />
     <Compile Include="Core\EntityConfigs\SeatMapping.cs" />
     <Compile Include="Core\EntityConfigs\TransportMapping.cs" />
@@ -168,6 +170,7 @@
     <Compile Include="Core\EntityConfigs\UserMapping.cs" />
     <Compile Include="Core\EntityConfigs\BookInfoMapping.cs" />
     <Compile Include="Core\EntityConfigs\BookMapping.cs" />
+    <Compile Include="Core\Enums\EnumCollection.cs" />
     <Compile Include="Core\FilterParams.cs" />
     <Compile Include="Core\IRepositories\IBookRepository.cs" />
     <Compile Include="Core\IRepositories\ITransportRepository.cs" />
@@ -483,6 +486,7 @@
     <Content Include="Views\Customer\_CustomerTable.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Book\_SeatBlock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

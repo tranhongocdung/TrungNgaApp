@@ -31,35 +31,42 @@ tr.shown td.details-control {
 
 .confirmation h3 {text-align: center}
 
-#order-table td[colspan] {background: #fcf8e3}
-#order-table td[colspan] .table {background: none}
+.control-panel > div { margin: 0; padding: 0}
+.control-panel > div > div { padding: 3px}
 
-#btnSubmit {position: relative}
-#manageLoading { position: absolute;left: 10px;top: 10px}
+.coach-left, .coach-right {width: 49.8%}
 
-.coach-left { float: left; width: 50%}
-.coach-right { float: right; width: 50%}
-.coach-left li,.coach-right li {list-style-type: none}
-
+.coach-left .seat {float: left}
+.coach-right .seat {float: right}
 .seat {
     height: 160px;
+    width: 33.333333333333333%;
+    padding-bottom: 4px
 }
 .coach-left .seat {
-    padding: 0 4px 4px 0
+    padding: 0 2px 4px 2px
 }
 .coach-right .seat {
-    padding: 0 0 4px 4px
+    padding: 0 2px 4px 2px
 }
 .seat > div { border: solid 2px #ccc;height: 100%;position: relative}
-.seat .book-info-panel {margin: 30px 0 0 5px}
-.seat .book-info-panel p {margin: 2px 0}
-.seat .text-large {font-size: 20px}
-.seat .button-panel { position: absolute;bottom: 5px;left: 5px}
+.seat .book-info-panel {position: relative;margin: 30px 0 0 5px;padding: 5px 38px 0 0}
+.seat .book-info-panel p { padding: 0 !important; margin: 0 !important}
+.seat .book-info-panel p:first-child { padding-bottom: 4px !important;padding-top: 2px !important}
+.seat .book-info-panel .passenger-phone-panel { position: absolute;top: 0;right: 5px;font-size: 22px; font-weight: bold}
+.seat .nb-of-seats { position: absolute;top: 55px;right: 5px;color: #a40000;font-weight: bold;font-size: 20px}
+.seat .button-panel { position: absolute;bottom: 5px;left: 5px;width: 100%;padding-right: 10px}
 .seat .button-panel .btn {margin-left: 5px}
 .seat .button-panel .btn:first-child {margin-left: 0}
+.seat .button-panel .btn-stick {float: right}
+.seat .button-panel .btn-stick.is-sticked { background-color: #009c00 !important;border-color: #009200;color: #fff}
+.seat .button-panel .btn-stick.is-sticked:hover { background-color: #007800 !important}
 .seat .seat-label { position: absolute;top: 0;left: 0;padding: 3px 5px;font-weight: bold; font-size: 16px}
 .seat .pick-up-label { position: absolute;top: 0;right: 0;padding: 3px 5px;background: green;font-size: 16px;color: #fff}
 
 .seat.selected > div {border-color: green}
-.seat.booked > div {background: #FCC3BD}
+.seat.booked > div {background: #fce0bd}
+.seat.booked.no-bookinfo > div {background: #ffc7c1}
+.seat.booked.paid-already > div {background: #ddefff}
+.seat.booked.free-fee > div {background: #e1e1e1}
 .seat.booked .seat-label {background: #faffba}

@@ -40,7 +40,7 @@ namespace MVCWeb.Core.Services
 
         public ICollection<SelectListItem> GetTransportsForSelectList(int day, int month, int year)
         {
-            var transports = _transportRepository.TableNoTracking.Include(o => o.Coach)
+            var transports = _transportRepository.TableNoTracking
                 .Where(o=>o.Day == day && o.Month == month && o.Year == year).ToList();
             var list = new List<SelectListItem>();
             transports.ForEach(t =>
@@ -49,7 +49,7 @@ namespace MVCWeb.Core.Services
                 list.Add(new SelectListItem
                 {
                     Value = t.Id.ToString(),
-                    Text = t.Coach.Name + " (" + t.Hour.ToString("00") + ":" + t.Minute.ToString("00") + ") - " + availSeatNo + "/48"
+                    Text = t.Hour.ToString("00") + ":" + t.Minute.ToString("00") + " - Ghế trống " + (48-availSeatNo) + "/48"
                 });
             });
             return list;

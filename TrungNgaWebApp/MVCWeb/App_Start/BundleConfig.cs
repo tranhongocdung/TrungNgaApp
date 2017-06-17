@@ -32,7 +32,7 @@ namespace MVCWeb
                       "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/bundles/bookindex-css").Include(
                       "~/Content/datepicker/css/bootstrap-datepicker.min.css"));
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
             
         }
     }

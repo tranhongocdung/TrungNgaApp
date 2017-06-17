@@ -6,7 +6,9 @@ namespace MVCWeb.Core.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int CoachTypeId { get; set; }
 
+        public virtual CoachType CoachType { get; set; }
         public virtual ICollection<Transport> Transports { get; set; }
 
     }

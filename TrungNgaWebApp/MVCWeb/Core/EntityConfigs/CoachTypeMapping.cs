@@ -4,13 +4,12 @@ using MVCWeb.Core.Entities;
 
 namespace MVCWeb.Core.EntityConfigs
 {
-    public class CoachMapping : EntityTypeConfiguration<Coach>
+    public class CoachTypeMapping : EntityTypeConfiguration<CoachType>
     {
-        public CoachMapping()
+        public CoachTypeMapping()
         {
-            ToTable("Coach");
+            ToTable("CoachType");
             HasKey(o => o.Id).Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            HasRequired(o => o.CoachType).WithMany(o => o.Coaches).HasForeignKey(o => o.CoachTypeId);
         }
     }
 }

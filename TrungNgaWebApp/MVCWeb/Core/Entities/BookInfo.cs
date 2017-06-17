@@ -9,7 +9,10 @@ namespace MVCWeb.Core.Entities
         public string PassengerPhoneNo { get; set; }
         public string PickUpLocation { get; set; }
         public int NbOfSeats { get; set; }
+        public int TicketPrice { get; set; }
         public int PaymentStatusId { get; set; }
+        public string Note { get; set; }
+        public bool IsSticked { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
         public virtual ICollection<BookLog> BookLogs { get; set; }

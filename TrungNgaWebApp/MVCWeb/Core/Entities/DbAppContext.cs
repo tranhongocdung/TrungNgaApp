@@ -20,6 +20,7 @@ namespace MVCWeb.Core.Entities
         public DbSet<User> Users { get; set; }
         public DbSet<BookInfo> BookInfos { get; set; }
         public DbSet<Coach> Coaches { get; set; }
+        public DbSet<CoachType> CoachTypes { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<BookLog> BookLogs { get; set; }
         public DbSet<Seat> Seats { get; set; }
@@ -34,6 +35,7 @@ namespace MVCWeb.Core.Entities
             modelBuilder.Configurations.Add(new TransportMapping());
             modelBuilder.Configurations.Add(new SeatMapping());
             modelBuilder.Configurations.Add(new CoachMapping());
+            modelBuilder.Configurations.Add(new CoachTypeMapping());
             modelBuilder.Configurations.Add(new BookMapping());
             modelBuilder.Configurations.Add(new BookLogMapping());
             modelBuilder.Configurations.Add(new BookInfoMapping());
