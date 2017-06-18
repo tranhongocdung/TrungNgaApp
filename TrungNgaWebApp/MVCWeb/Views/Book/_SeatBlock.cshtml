@@ -6,7 +6,7 @@
                 @(Model.PaymentStatusId == (int) PaymentStatusEnum.PaidAlready ? "paid-already" : "") 
                 @(Model.PaymentStatusId == (int)PaymentStatusEnum.Free ? "free-fee" : "") 
                 @(!Model.HasBookInfo ? "no-bookinfo" : "") 
-                ">
+                " data-seat-id="@(Model.SeatId)" data-book-id="@(Model.BookId)" data-bookinfo-id="@(Model.BookInfoId)">
     <div>
         <div class="seat-label">@Model.SeatLabel</div>
         @if (Model.IsBooked)
@@ -14,7 +14,6 @@
             if (!string.IsNullOrEmpty(Model.PickUpLocation))
             {
                 <div class="pick-up-label">@Model.PickUpLocation</div>
-
             }
             <div class="book-info-panel">
                 @if (!string.IsNullOrEmpty(Model.PassengerName))
@@ -25,7 +24,7 @@
                 {
                     <p class="italic text-danger">* @Model.Note</p>
                 }
-                <p>Nhận khách: <strong class="text-success">@Model.BookedByDisplayName</strong></p>
+                <p>Nhận khách: <strong class="text-primary">@Model.BookedByDisplayName</strong></p>
                 @if (!string.IsNullOrEmpty(Model.PassengerPhoneNo))
                 {
                     <div class="passenger-phone-panel">@Model.PassengerPhoneNo</div>
@@ -36,9 +35,9 @@
                 <div class="nb-of-seats">@(Model.NbOfSeats)G</div>
             }
             <div class="button-panel ">
-                <button type="button" class="btn btn-circle btn-primary" title="Cập nhật"><span class="glyphicon glyphicon-pencil"></span></button>
-                <button type="button" class="btn btn-circle btn-success" title="Chuyển ghế"><span class="glyphicon glyphicon-retweet"></span></button>
-                <button type="button" class="btn btn-circle btn-warning" title="Đặt chỗ nhanh"><span class="glyphicon glyphicon-download-alt"></span></button>
+                <button type="button" class="btn btn-circle btn-primary btn-update-bookinfo" title="Cập nhật"><span class="glyphicon glyphicon-pencil"></span></button>
+                <button type="button" class="btn btn-circle btn-success btn-move-seat" title="Chuyển ghế"><span class="glyphicon glyphicon-retweet"></span></button>
+                <button type="button" class="btn btn-circle btn-warning btn-quick-booking" title="Đặt chỗ nhanh"><span class="glyphicon glyphicon-download-alt"></span></button>
                 <button type="button" class="btn btn-circle btn-default btn-stick @(Model.IsSticked?"is-sticked":"")" title="Đánh dấu"><span class="glyphicon glyphicon-check"></span></button>
             </div>
         }

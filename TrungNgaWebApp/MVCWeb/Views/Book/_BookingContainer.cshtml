@@ -1,0 +1,14 @@
+﻿@model MVCWeb.Models.BookIndexViewModel
+<div class="coach-left pl0">
+    @foreach (var seat in Model.LeftSeatWithBookInfos)
+    {
+        @Html.Partial("_SeatBlock", seat)
+    }
+</div>
+<div class="coach-right pr0">
+    @foreach (var seat in Model.RightSeatWithBookInfos)
+    {
+        @Html.Partial("_SeatBlock", seat)
+    }
+</div>
+<div class="clearfix"></div>

@@ -23,17 +23,22 @@
             @Html.HiddenFor(o => o.LatestDateHavingTransport, new { @id = "hdnLatestDateHavingTransport" })
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            @Html.DropDownListFor(m => m.TransportId, Model.TransportItems, new { @class = "form-control", @onchange = "$(this.form).submit();" })
+            @Html.DropDownListFor(m => m.TransportId, Model.TransportItems, new { @id = "ddlCurrentTransport", @class = "form-control"})
         </div>
     </div>
     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-        <div class="control-group">
-            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span> In phơi</button> 
-            <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-refresh"></span> Làm mới</button> 
-            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-list"></span> Đón trả</button> 
-            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-list-alt"></span> Trung chuyển</button>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-print"></span> In phơi</button>
         </div>
-        
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-warning btn-block" id="btnReloadBookingContainer"><span class="glyphicon glyphicon-refresh"></span> Làm mới</button>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon-list"></span> Đón trả</button>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-list-alt"></span> Trung chuyển</button>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -44,22 +49,16 @@
         </p>
     </div>
 </div>
-<div>
-    <div class="coach-left pl0">
-        @foreach (var seat in Model.LeftSeatWithBookInfos)
-        {
-            @Html.Partial("_SeatBlock", seat)
-        }
-    </div>
-    <div class="coach-right pr0">
-        @foreach (var seat in Model.RightSeatWithBookInfos)
-        {
-            @Html.Partial("_SeatBlock", seat)
-        }
-    </div>
-    <div class="clearfix"></div>
+<div id="divLoadingProgress" style="display: none">
+    <img src="~/Content/images/ajax-loader-6.gif"/>
+</div>
+<div id="booking-container">
+    @Html.Partial("_BookingContainer", Model)
 </div>
 
+<div id="hidden-content"></div>
+<input type="hidden" id="edit-bookinfo-url" value="@Url.Action("EditBookInfo", "Book")"/>
+<input type="hidden" id="reload-bookingcontainer-url" value="@Url.Action("LoadBookingContainer", "Book")" />
 @section OptionalCss
 {
     @Styles.Render("~/bundles/bookindex-css")

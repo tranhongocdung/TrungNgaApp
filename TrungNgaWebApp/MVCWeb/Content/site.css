@@ -49,6 +49,10 @@ tr.shown td.details-control {
 .coach-right .seat {
     padding: 0 2px 4px 2px
 }
+
+#divLoadingProgress { position: relative;width: 100%;z-index: 999 }
+#divLoadingProgress img { position: absolute;top: 30px;z-index: 999}
+
 .seat > div { border: solid 2px #ccc;height: 100%;position: relative}
 .seat .book-info-panel {position: relative;margin: 30px 0 0 5px;padding: 5px 38px 0 0}
 .seat .book-info-panel p { padding: 0 !important; margin: 0 !important}
@@ -65,8 +69,9 @@ tr.shown td.details-control {
 .seat .pick-up-label { position: absolute;top: 0;right: 0;padding: 3px 5px;background: green;font-size: 16px;color: #fff}
 
 .seat.selected > div {border-color: green}
+.seat.selected-for-task > div {border-color: #a40000}
 .seat.booked > div {background: #fce0bd}
 .seat.booked.no-bookinfo > div {background: #ffc7c1}
 .seat.booked.paid-already > div {background: #ddefff}
-.seat.booked.free-fee > div {background: #e1e1e1}
+.seat.booked.free-fee > div {background: #c1c0c0}
 .seat.booked .seat-label {background: #faffba}

@@ -42,5 +42,23 @@ namespace MVCWeb.Controllers
             }
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult LoadBookingContainer(int transportId)
+        {
+            var model = new BookIndexViewModel();
+            var seatWithBookInfos = _bookService.GetSeatWithBookInfos(transportId);
+            model.LeftSeatWithBookInfos = seatWithBookInfos.Where(o => o.IsOnLeftSide).ToList();
+            model.RightSeatWithBookInfos = seatWithBookInfos.Where(o => !o.IsOnLeftSide).ToList();
+            System.Threading.Thread.Sleep(1500);
+            return View("_BookingContainer", model);
+        }
+
+        public ActionResult EditBookInfo(int bookId)
+        {
+            return View();
+        }
+
+
     }
 }

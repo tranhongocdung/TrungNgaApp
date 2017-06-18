@@ -49,10 +49,12 @@ namespace MVCWeb.Core.Services
                 var book = books.FirstOrDefault(b => b.SeatId == o.SeatId);
                 if (book != null)
                 {
+                    o.BookId = book.Id;
                     o.IsBooked = true;
                     o.BookedByDisplayName = book.CreatedBy.DisplayName;
                     if (book.BookInfo != null)
                     {
+                        o.BookInfoId = book.BookInfoId;
                         o.HasBookInfo = true;
                         o.PassengerName = book.BookInfo.PassengerName;
                         o.PassengerPhoneNo = book.BookInfo.PassengerPhoneNo;

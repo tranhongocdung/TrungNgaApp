@@ -7,6 +7,8 @@ namespace MVCWeb.Core.DtoForEntities
 {
     public class SeatWithBookInfoDto
     {
+        public int? BookId { get; set; }
+        public int? BookInfoId { get; set; }
         public int SeatId { get; set; }
         public string SeatLabel { get; set; }
         public bool IsOnLeftSide { get; set; }
