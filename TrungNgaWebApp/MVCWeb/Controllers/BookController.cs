@@ -1,9 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using MVCWeb.Core.Entities;
 using MVCWeb.Core.IServices;
 using MVCWeb.Core.Security;
 using MVCWeb.Libraries;
 using MVCWeb.Models;
+using Newtonsoft.Json;
 
 namespace MVCWeb.Controllers
 {
@@ -50,15 +53,19 @@ namespace MVCWeb.Controllers
             var seatWithBookInfos = _bookService.GetSeatWithBookInfos(transportId);
             model.LeftSeatWithBookInfos = seatWithBookInfos.Where(o => o.IsOnLeftSide).ToList();
             model.RightSeatWithBookInfos = seatWithBookInfos.Where(o => !o.IsOnLeftSide).ToList();
-            System.Threading.Thread.Sleep(1500);
             return View("_BookingContainer", model);
         }
 
-        public ActionResult EditBookInfo(int bookId)
+        public ActionResult EditBookInfo(int bookId = 0)
         {
             return View();
         }
 
-
+        public ActionResult BookSeats(string seatListJson)
+        {
+            var seatList = JsonConvert.DeserializeObject<List<Ticket>>(seatListJson);
+            _bookService.BookSeats(seatList, User.UserId);
+            return Content("1");
+        }
     }
 }

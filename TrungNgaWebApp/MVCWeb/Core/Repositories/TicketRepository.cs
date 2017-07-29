@@ -3,11 +3,11 @@ using MVCWeb.Core.IRepositories;
 
 namespace MVCWeb.Core.Repositories
 {
-    public class BookRepository : GenericRepository<Book>, IBookRepository
+    public class TicketRepository : GenericRepository<Ticket>, ITicketRepository
     {
         private readonly IDbAppContext _context;
 
-        public BookRepository(IDbAppContext context) : base(context)
+        public TicketRepository(IDbAppContext context) : base(context)
         {
             _context = context as DbAppContext;
         }

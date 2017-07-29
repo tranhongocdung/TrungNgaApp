@@ -9,16 +9,16 @@ namespace MVCWeb.Core.Services
 {
     public class TransportService : ITransportService
     {
-        private readonly IBookRepository _bookRepository;
+        private readonly ITicketRepository _bookRepository;
         private readonly ITransportRepository _transportRepository;
         private readonly ITransportDirectionRepository _transportDirectionRepository;
         public TransportService(
-            IBookRepository bookRepository,
+            ITicketRepository ticketRepository,
             ITransportRepository transportRepository,
             ITransportDirectionRepository transportDirectionRepository
             )
         {
-            _bookRepository = bookRepository;
+            _bookRepository = ticketRepository;
             _transportRepository = transportRepository;
             _transportDirectionRepository = transportDirectionRepository;
         }

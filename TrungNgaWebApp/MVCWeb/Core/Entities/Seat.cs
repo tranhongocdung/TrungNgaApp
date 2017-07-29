@@ -10,7 +10,6 @@ namespace MVCWeb.Core.Entities
         public bool IsOnLeftSide { get; set; }
 
         public virtual CoachType CoachType { get; set; }
-        public virtual ICollection<Book> Books { get; set; }
-
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

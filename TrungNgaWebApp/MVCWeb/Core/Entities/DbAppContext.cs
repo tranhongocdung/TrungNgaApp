@@ -18,11 +18,12 @@ namespace MVCWeb.Core.Entities
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<BookInfo> BookInfos { get; set; }
+        public DbSet<Passenger> Passengers { get; set; }
         public DbSet<Coach> Coaches { get; set; }
         public DbSet<CoachType> CoachTypes { get; set; }
-        public DbSet<Book> Books { get; set; }
-        public DbSet<BookLog> BookLogs { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<TicketChangeLog> TicketChangeLogs { get; set; }
+        public DbSet<PickUpLocation> PickUpLocations { get; set; }
         public DbSet<Seat> Seats { get; set; }
         public DbSet<Transport> Transports { get; set; }
         public DbSet<TransportDirection> TransportDirections { get; set; }
@@ -36,9 +37,10 @@ namespace MVCWeb.Core.Entities
             modelBuilder.Configurations.Add(new SeatMapping());
             modelBuilder.Configurations.Add(new CoachMapping());
             modelBuilder.Configurations.Add(new CoachTypeMapping());
-            modelBuilder.Configurations.Add(new BookMapping());
-            modelBuilder.Configurations.Add(new BookLogMapping());
-            modelBuilder.Configurations.Add(new BookInfoMapping());
+            modelBuilder.Configurations.Add(new TicketMapping());
+            modelBuilder.Configurations.Add(new TicketChangeLogMapping());
+            modelBuilder.Configurations.Add(new PassengerMapping());
+            modelBuilder.Configurations.Add(new PickUpLocationMapping());
 
             base.OnModelCreating(modelBuilder);
         }

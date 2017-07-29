@@ -6,14 +6,14 @@
                 @(Model.PaymentStatusId == (int) PaymentStatusEnum.PaidAlready ? "paid-already" : "") 
                 @(Model.PaymentStatusId == (int)PaymentStatusEnum.Free ? "free-fee" : "") 
                 @(!Model.HasBookInfo ? "no-bookinfo" : "") 
-                " data-seat-id="@(Model.SeatId)" data-book-id="@(Model.BookId)" data-bookinfo-id="@(Model.BookInfoId)">
+                " data-seat-id="@(Model.SeatId)" data-ticket-id="@(Model.TicketId)" data-passenger-id="@(Model.PassengerId)">
     <div>
         <div class="seat-label">@Model.SeatLabel</div>
         @if (Model.IsBooked)
         {
             if (!string.IsNullOrEmpty(Model.PickUpLocation))
             {
-                <div class="pick-up-label">@Model.PickUpLocation</div>
+                <div class="pick-up-label @(Model.IsPickUpAndGo?"pick-up-and-go":"")">@Model.PickUpLocation</div>
             }
             <div class="book-info-panel">
                 @if (!string.IsNullOrEmpty(Model.PassengerName))
@@ -37,14 +37,15 @@
             <div class="button-panel ">
                 <button type="button" class="btn btn-circle btn-primary btn-update-bookinfo" title="Cập nhật"><span class="glyphicon glyphicon-pencil"></span></button>
                 <button type="button" class="btn btn-circle btn-success btn-move-seat" title="Chuyển ghế"><span class="glyphicon glyphicon-retweet"></span></button>
-                <button type="button" class="btn btn-circle btn-warning btn-quick-booking" title="Đặt chỗ nhanh"><span class="glyphicon glyphicon-download-alt"></span></button>
+                <button type="button" class="btn btn-circle btn-warning btn-quick-booking" title="Đặt chỗ nhanh"><span class="glyphicon glyphicon-road"></span></button>
                 <button type="button" class="btn btn-circle btn-default btn-stick @(Model.IsSticked?"is-sticked":"")" title="Đánh dấu"><span class="glyphicon glyphicon-check"></span></button>
             </div>
         }
         else
         {
             <div class="button-panel">
-                <button type="button" class="btn btn-circle btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+                <button type="button" class="btn btn-circle btn-primary btn-book-seat"><span class="glyphicon glyphicon-plus"></span></button>
+                <img src="~/Content/images/ajax-loader-2.gif" style="display: none" />
             </div>
         }
     </div>

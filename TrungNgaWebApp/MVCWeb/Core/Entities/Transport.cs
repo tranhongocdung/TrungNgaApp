@@ -7,7 +7,7 @@ namespace MVCWeb.Core.Entities
     {
         public int Id { get; set; }
         public int CoachId { get; set; }
-        public int DriverId { get; set; }
+        public int? DriverId { get; set; }
         public int? AssistantId { get; set; }
         public int Day { get; set; }
         public int Month { get; set; }
@@ -17,11 +17,12 @@ namespace MVCWeb.Core.Entities
         public bool IsCompleted { get; set; }
         public int TransportDirectionId { get; set; }
         public DateTime RunDate { get; set; }
+        public bool IsEnhanced { get; set; }
 
         public virtual Coach Coach { get; set; }
         public virtual Employee Driver { get; set; }
         public virtual Employee Assistant { get; set; }
         public virtual TransportDirection TransportDirection { get; set; }
-        public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

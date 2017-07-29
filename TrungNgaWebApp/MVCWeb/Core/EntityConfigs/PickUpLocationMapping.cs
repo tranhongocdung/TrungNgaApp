@@ -4,11 +4,11 @@ using MVCWeb.Core.Entities;
 
 namespace MVCWeb.Core.EntityConfigs
 {
-    public class BookInfoMapping : EntityTypeConfiguration<BookInfo>
+    public class PickUpLocationMapping : EntityTypeConfiguration<PickUpLocation>
     {
-        public BookInfoMapping()
+        public PickUpLocationMapping()
         {
-            ToTable("BookInfo");
+            ToTable("PickUpLocation");
             HasKey(o => o.Id).Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
     }

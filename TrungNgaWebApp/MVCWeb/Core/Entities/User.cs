@@ -9,7 +9,7 @@ namespace MVCWeb.Core.Entities
         public string Username { get; set; }
         public string Password { get; set; }
 
-        public virtual ICollection<Book> Books { get; set; }
-        public virtual ICollection<BookLog> BookLogs { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<TicketChangeLog> TicketChangeLogs { get; set; }
     }
 }

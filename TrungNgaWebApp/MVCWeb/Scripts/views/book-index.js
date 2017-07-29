@@ -1,9 +1,94 @@
-﻿$(document).ready(function () {
+﻿var selectedSeatList = {
+    data: [],
+    passengerId: 0,
+    contain: function(obj) {
+        var seatObj;
+        if (obj.hasClass("seat")) {
+            seatObj = obj;
+        } else {
+            seatObj = obj.closest(".seat");
+        }
+        var json = {
+            TransportId: getCurrentTransport(),
+            SeatId: seatObj.data("seat-id")
+        };
+        var hasMatch = false;
+        for (var index = 0; index < this.data.length; ++index) {
+            var seat = this.data[index];
+            if (seat.TransportId == json.TransportId && seat.SeatId == json.SeatId) {
+                hasMatch = true;
+                break;
+            }
+        }
+        return hasMatch;
+    },
+    clear: function() {
+        this.data = [];
+    },
+    add: function(obj) {
+        var seatObj;
+        if (obj.hasClass("seat")) {
+            seatObj = obj;
+        } else {
+            seatObj = obj.closest(".seat");
+        }
+        if (!this.contain(obj)) {
+            var json = {
+                TransportId: getCurrentTransport(),
+                SeatId: seatObj.data("seat-id")
+            };
+            this.data.push(json);
+        }
+    },
+    remove: function(obj) {
+        var seatObj;
+        if (obj.hasClass("seat")) {
+            seatObj = obj;
+        } else {
+            seatObj = obj.closest(".seat");
+        }
+        var json = {
+            TransportId: getCurrentTransport(),
+            SeatId: seatObj.data("seat-id")
+        };
+        for (var index = 0; index < this.data.length; ++index) {
+            var seat = this.data[index];
+            if (seat.TransportId == json.TransportId && seat.SeatId == json.SeatId) {
+                this.data.splice(index, 1);
+                return;
+            }
+        }
+    }
+};
+
+
+
+
+var editMode;
+
+/*Constants*/
+var EDIT_SEAT_INFO = 1;
+var MOVE_SEAT = 2;
+
+
+$(document).ready(function () {
     $(window).bind("load resize", function () {
         adjustElementsByScreenSize();
     });
     bindDatePickerAndControls();
     bindSeatControls();
+    $("#test-modal").click(function() {
+        $.ajax({
+            method: "GET",
+            url: $("#edit-bookinfo-url").val(),
+            data: { id: $(this).data("customer-id") },
+            success: function (html) {
+                $("#modal-container").html(html);
+                $("#edit-bookinfo-modal").modal();
+                adjustElementsByScreenSize();
+            }
+        });
+    });
 });
 
 function adjustElementsByScreenSize() {
@@ -12,26 +97,36 @@ function adjustElementsByScreenSize() {
         $(".seat").removeAttr("style");
         $(".coach-left").removeAttr("style").removeClass("pr0").addClass("pull-left");
         $(".coach-right").removeAttr("style").removeClass("pl0").addClass("pull-right");
+        $("#edit-bookinfo-modal > .modal-dialog").addClass("modal-md");
     }
     if (width >= 1000 && width < 1420) {
         $(".seat").css("width", "50%");
         $(".coach-left").removeAttr("style").removeClass("pr0").addClass("pull-left");
         $(".coach-right").removeAttr("style").removeClass("pl0").addClass("pull-right");
+        $("#edit-bookinfo-modal > .modal-dialog").addClass("modal-md");
     }
     if (width >= 740 && width < 1000) {
         $(".seat").removeAttr("style");
         $(".coach-left").css("width", "100%").addClass("pr0");
         $(".coach-right").css("width", "100%").addClass("pl0");
+        $("#edit-bookinfo-modal > .modal-dialog").addClass("modal-md");
     }
     if (width >= 500 && width < 740) {
         $(".seat").css("width", "50%");
         $(".coach-left").css("width", "100%").addClass("pr0");
         $(".coach-right").css("width", "100%").addClass("pl0");
+        $("#edit-bookinfo-modal > .modal-dialog").removeClass("modal-md");
     }
     if (width < 500) {
         $(".seat").css("width", "100%");
         $(".coach-left").css("width", "100%").addClass("pr0");
         $(".coach-right").css("width", "100%").addClass("pl0");
+        $("#edit-bookinfo-modal > .modal-dialog").removeClass("modal-md");
+    }
+    if (width > 765) {
+        $(".seat-list").removeClass("list-group-horizontal");
+    } else {
+        $(".seat-list").addClass("list-group-horizontal");
     }
 }
 
@@ -42,13 +137,56 @@ function bindSeatControls() {
             return;
         }
         if ($(this).hasClass("selected")) {
+            //Un-select the current seat
             $(this).removeClass("selected");
+            selectedSeatList.remove($(this));
         } else {
-            $(this).addClass("selected");
+            //Select the current seat
+            var passengerId = $(this).data("passenger-id");
+            if (passengerId != "") {
+                //This seat contains passenger info
+                if (selectedSeatList.passengerId != passengerId) {
+                    //This seat contains passenger info which is different from ones in list
+                    $(".seat").removeClass("selected");
+                    $(".seat[data-passenger-id=" + passengerId + "]").addClass("selected");
+                    selectedSeatList.passengerId = passengerId;
+                    selectedSeatList.clear();
+                    $(".seat[data-passenger-id=" + passengerId + "]").each(function() {
+                        selectedSeatList.add($(this));
+                    });
+                } else {
+                    //This seat with passenger info was un-selected then re-select
+                    $(this).addClass("selected");
+                    selectedSeatList.add($(this));
+                }
+            } else {
+                //This seat is empty
+                if (selectedSeatList.passengerId != 0) {
+                    //Remove all seats with passenger info in list
+                    $(".seat").removeClass("selected");
+                    selectedSeatList.passengerId = 0;
+                    selectedSeatList.clear();
+                }
+                $(this).addClass("selected");
+                selectedSeatList.add($(this));
+            }
         }
     });
-    $(".seat .button-panel button").on("click", function (e) {
-        alert("button is clicked!");
+    $(".seat .button-panel .btn-book-seat").on("click", function (e) {
+        var seat = $(this).closest(".seat");
+        if (!seat.hasClass("selected")) {
+            seat.click();
+        }
+        $(this).parent().find("img").show();
+        $.ajax({
+            url: $("#book-seats-url").val(),
+            data: {
+                seatListJson: JSON.stringify(selectedSeatList.data)
+            },
+            success: function () {
+                $("#btnReloadBookingContainer").click();
+            }
+        });
     });
 }
 
@@ -76,7 +214,7 @@ function reloadBookingContainer() {
     $.ajax({
         method: "POST",
         url: $("#reload-bookingcontainer-url").val(),
-        data: { transportId: $("#ddlCurrentTransport").val() },
+        data: { transportId: getCurrentTransport() },
         beforeSend: function () {
             showMainProgressBar();
         },
@@ -105,3 +243,8 @@ function editBookInfoBegin() {
 function editBookInfoEnd() {
 
 }
+
+function getCurrentTransport() {
+    return $("#ddlCurrentTransport").val();
+}
+

@@ -1,7 +1,6 @@
-﻿@using MVCWeb.Core.Enums
-@model MVCWeb.Models.BookIndexViewModel
+﻿@model MVCWeb.Models.BookIndexViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Quản lý nhà xe Trung Nga";
     Layout = "~/Views/Shared/MainLayout.cshtml";
 }
 
@@ -47,6 +46,7 @@
         <p>
             Tài xế: <strong class="text-primary">Thành</strong> - Lơ xe: <strong class="text-primary">Hiếu</strong>
         </p>
+        <button id="test-modal">Test modal</button>
     </div>
 </div>
 <div id="divLoadingProgress" style="display: none">
@@ -56,8 +56,9 @@
     @Html.Partial("_BookingContainer", Model)
 </div>
 
-<div id="hidden-content"></div>
+<div id="modal-container"></div>
 <input type="hidden" id="edit-bookinfo-url" value="@Url.Action("EditBookInfo", "Book")"/>
+<input type="hidden" id="book-seats-url" value="@Url.Action("BookSeats", "Book")" />
 <input type="hidden" id="reload-bookingcontainer-url" value="@Url.Action("LoadBookingContainer", "Book")" />
 @section OptionalCss
 {

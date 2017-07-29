@@ -2,7 +2,7 @@
 
 namespace MVCWeb.Core.IRepositories
 {
-    public interface IBookRepository : IGenericRepository<Book>
+    public interface ITicketRepository : IGenericRepository<Ticket>
     {
 
     }

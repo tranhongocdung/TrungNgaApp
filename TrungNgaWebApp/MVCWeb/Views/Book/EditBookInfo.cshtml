@@ -1,10 +1,10 @@
 ﻿
-<div class="modal fade" id="edit-bookinfo-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" @* data-backdrop="static"*@>
-    <div class="modal-dialog">
+<div class="modal fade" id="edit-bookinfo-modal" style="padding-right: 0 !important" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" @* data-backdrop="static"*@>
+    <div class="modal-dialog modal-md">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-primary">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="modal-title">Thông tin đặt ghế</h4>
+                <h4 class="modal-title" id="modal-title">Cập nhật thông tin</h4>
             </div>
             <div class="modal-body" id="modal-body">
                 @using (Ajax.BeginForm("EditBookInfo", "Book", new AjaxOptions
@@ -16,10 +16,112 @@
                 }, new { id = "frmCustomerEdit" }))
                 {
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Tên khách hàng</label>
-                                
+                        <div class="col-md-1 col-sm-1 col-xs-12" style="padding-right: 5px">
+                            <ul class="list-group seat-list">
+                                <li class="list-group-item">A11</li>
+                                <li class="list-group-item">A12</li>
+                                <li class="list-group-item">B13</li>
+                                <li class="list-group-item">B14</li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-12">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#update-ticket">Thông tin chung</a></li>
+                                <li><a data-toggle="tab" href="#ticket-change-log">Lịch sử</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="update-ticket" class="tab-pane fade in active">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Ngày đi</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" name="PickupDate" value="" readonly="readonly" class="form-control">
+                                                    <div class="input-group-addon">
+                                                        <i class="glyphicon glyphicon-calendar"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Giờ</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" name="PickupTime" value="" readonly="readonly" class="form-control">
+                                                    <div class="input-group-addon">
+                                                        <i class="glyphicon glyphicon-time"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Di động</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" class="form-control text-highlight">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Đón khách</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="col-md-3 col-sm-3 col-xs-12 pl0"></div>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <select class="form-control">
+                                                        <option>Trung chuyển về trạm</option>
+                                                        <option>Đón trên đường đi</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Tên khách</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" class="form-control text-highlight">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Giá vé</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" class="form-control text-highlight">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Tổng tiền</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" name="PickupDate" class="form-control" readonly="readonly">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Th/toán</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <select class="form-control">
+                                                        <option>Tại văn phòng</option>
+                                                        <option>Tài xe thu</option>
+                                                        <option>Không thu tiền</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12 pl0">Ghi chú</label>
+                                                <div class="input-group col-md-9 col-sm-9 col-xs-12">
+                                                    <textarea class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="ticket-change-log" class="tab-pane fade">
+                                    xyz
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -27,18 +129,19 @@
                 <div id="edit-content" class="notification-container"></div>
             </div>
             <div class="modal-footer">
-                <div class="col-md-2">
+                <div class="col-md-2 col-sm-2 col-xs-12">
                     <img src="/Content/images/ajax-loader-3.gif" class="edit-loader" style="display: none" id="edit-loader" />
                 </div>
-                <div class="col-md-6"></div>
-                @*<div class="col-md-2">
-                        <button type="button" class="btn btn-block btn-danger" id="btnDelete" style="display: none">Xóa</button>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <button type="button" class="btn btn-block btn-success">Thêm vé</button>
                     </div>
-                    <div class="col-md-4">
-                        <button type="button" class="btn btn-block btn-success" id="btnResetEditForm">Tạo mới</button>
-                    </div>*@
-                <div class="col-md-4">
-                    <button type="button" class="btn btn-block btn-primary" id="btnSave">Lưu lại</button>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <button type="button" class="btn btn-block btn-danger">Hủy vé</button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <button type="button" class="btn btn-block btn-primary" id="btnSave">Cập nhật</button>
                 </div>
             </div>
         </div>

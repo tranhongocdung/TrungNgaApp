@@ -8,6 +8,24 @@
     padding: 0;
     font-size: 15px;
 }
+
+.list-group-horizontal .list-group-item {
+    display: inline-block;
+}
+.list-group-horizontal .list-group-item {
+	margin-bottom: 0;
+	margin-left:-4px;
+	margin-right: 0;
+}
+.list-group-horizontal .list-group-item:first-child {
+	border-top-right-radius:0;
+	border-bottom-left-radius:4px;
+}
+.list-group-horizontal .list-group-item:last-child {
+	border-top-right-radius:4px;
+	border-bottom-left-radius:0;
+}
+
 #alert-div { margin-bottom: 15px}
 .form-group .twitter-typeahead {display: block !important}
 
@@ -27,6 +45,12 @@ tr.shown td.details-control {
 .table-success {background: #fcffd4}
 .table-success:hover {background: #faffba !important}
 
+.modal-body {
+    max-height: 800px;
+}
+
+.form-control.text-highlight { font-weight: bold; color: #28ABE3!important}
+
 .order-btn-group .dropdown-menu { left: auto; right: 0 !important}
 
 .confirmation h3 {text-align: center}
@@ -37,7 +61,7 @@ tr.shown td.details-control {
 .coach-left, .coach-right {width: 49.8%}
 
 .coach-left .seat {float: left}
-.coach-right .seat {float: right}
+.coach-right .seat {float: left}
 .seat {
     height: 160px;
     width: 33.333333333333333%;
@@ -50,8 +74,8 @@ tr.shown td.details-control {
     padding: 0 2px 4px 2px
 }
 
-#divLoadingProgress { position: relative;width: 100%;z-index: 999 }
-#divLoadingProgress img { position: absolute;top: 30px;z-index: 999}
+#divLoadingProgress { position: fixed;width: 100%;height: 100%;z-index: 999 }
+#divLoadingProgress img { position: absolute;z-index: 999}
 
 .seat > div { border: solid 2px #ccc;height: 100%;position: relative}
 .seat .book-info-panel {position: relative;margin: 30px 0 0 5px;padding: 5px 38px 0 0}
@@ -65,8 +89,10 @@ tr.shown td.details-control {
 .seat .button-panel .btn-stick {float: right}
 .seat .button-panel .btn-stick.is-sticked { background-color: #009c00 !important;border-color: #009200;color: #fff}
 .seat .button-panel .btn-stick.is-sticked:hover { background-color: #007800 !important}
+.seat .button-panel > img {margin-left: 10px}
 .seat .seat-label { position: absolute;top: 0;left: 0;padding: 3px 5px;font-weight: bold; font-size: 16px}
-.seat .pick-up-label { position: absolute;top: 0;right: 0;padding: 3px 5px;background: green;font-size: 16px;color: #fff}
+.seat .pick-up-label { position: absolute;top: 0;right: 0;padding: 3px 5px;background: #286090;font-size: 16px;color: #fff}
+.seat .pick-up-label.pick-up-and-go { background: #5cb85c}
 
 .seat.selected > div {border-color: green}
 .seat.selected-for-task > div {border-color: #a40000}
@@ -75,3 +101,10 @@ tr.shown td.details-control {
 .seat.booked.paid-already > div {background: #ddefff}
 .seat.booked.free-fee > div {background: #c1c0c0}
 .seat.booked .seat-label {background: #faffba}
+
+.modal-body .row {margin-top: 10px}
+.modal-footer button {margin-top: 10px}
+.modal-md {width: 765px; max-width: 96%; font-size: 12px}
+.list-group.seat-list .list-group-item { text-align: center;font-weight: bold;background-color: #f5f5f5}
+.list-group.seat-list:not(.list-group-horizontal) .list-group-item {padding-left: 5px; padding-right: 5px }
+#edit-bookinfo-modal label { padding-top: 9px !important}

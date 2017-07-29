@@ -150,7 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DtoForEntities\SeatWithBookInfoDto.cs" />
-    <Compile Include="Core\Entities\BookLog.cs" />
+    <Compile Include="Core\Entities\PickUpLocation.cs" />
+    <Compile Include="Core\Entities\TicketChangeLog.cs" />
     <Compile Include="Core\Entities\CoachType.cs" />
     <Compile Include="Core\Entities\TransportDirection.cs" />
     <Compile Include="Core\Entities\Transport.cs" />
@@ -158,21 +159,22 @@
     <Compile Include="Core\Entities\DbAppContext.cs" />
     <Compile Include="Core\Entities\Coach.cs" />
     <Compile Include="Core\Entities\Seat.cs" />
-    <Compile Include="Core\Entities\BookInfo.cs" />
-    <Compile Include="Core\Entities\Book.cs" />
+    <Compile Include="Core\Entities\Passenger.cs" />
+    <Compile Include="Core\Entities\Ticket.cs" />
     <Compile Include="Core\Entities\User.cs" />
     <Compile Include="Core\EntityConfigs\CoachTypeMapping.cs" />
     <Compile Include="Core\EntityConfigs\CoachMapping.cs" />
     <Compile Include="Core\EntityConfigs\SeatMapping.cs" />
+    <Compile Include="Core\EntityConfigs\PassengerMapping.cs" />
+    <Compile Include="Core\EntityConfigs\PickUpLocationMapping.cs" />
     <Compile Include="Core\EntityConfigs\TransportMapping.cs" />
     <Compile Include="Core\EntityConfigs\TransportDirectionMapping.cs" />
-    <Compile Include="Core\EntityConfigs\BookLogMapping.cs" />
+    <Compile Include="Core\EntityConfigs\TicketChangeLogMapping.cs" />
     <Compile Include="Core\EntityConfigs\UserMapping.cs" />
-    <Compile Include="Core\EntityConfigs\BookInfoMapping.cs" />
-    <Compile Include="Core\EntityConfigs\BookMapping.cs" />
+    <Compile Include="Core\EntityConfigs\TicketMapping.cs" />
     <Compile Include="Core\Enums\EnumCollection.cs" />
     <Compile Include="Core\FilterParams.cs" />
-    <Compile Include="Core\IRepositories\IBookRepository.cs" />
+    <Compile Include="Core\IRepositories\ITicketRepository.cs" />
     <Compile Include="Core\IRepositories\ITransportRepository.cs" />
     <Compile Include="Core\IRepositories\ITransportDirectionRepository.cs" />
     <Compile Include="Core\IRepositories\IGenericRepository.cs" />
@@ -180,7 +182,7 @@
     <Compile Include="Core\IServices\ITransportService.cs" />
     <Compile Include="Core\IServices\IBookService.cs" />
     <Compile Include="Core\IServices\IWebAppService.cs" />
-    <Compile Include="Core\Repositories\BookRepository.cs" />
+    <Compile Include="Core\Repositories\TicketRepository.cs" />
     <Compile Include="Core\Repositories\TransportRepository.cs" />
     <Compile Include="Core\Repositories\TransportDirectionRepository.cs" />
     <Compile Include="Core\Repositories\GenericRepository.cs" />
@@ -251,6 +253,7 @@
     <Content Include="Content\images\ajax-loader-1.gif" />
     <Content Include="Content\images\ajax-loader-5.gif" />
     <Content Include="Content\images\ajax-loader-6.gif" />
+    <Content Include="Content\images\ajax-loader-7.gif" />
     <Content Include="Content\images\details-close.png" />
     <Content Include="Content\images\details-open.png" />
     <Content Include="Content\images\logo.png" />
@@ -490,6 +493,7 @@
     <Content Include="Views\Book\_SeatBlock.cshtml" />
     <Content Include="Views\Book\_BookingContainer.cshtml" />
     <Content Include="Views\Book\EditBookInfo.cshtml" />
+    <Content Include="Views\Order\OrderStatisticIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
