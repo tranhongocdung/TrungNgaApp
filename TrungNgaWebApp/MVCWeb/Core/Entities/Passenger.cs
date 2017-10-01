@@ -8,5 +8,8 @@ namespace MVCWeb.Core.Entities
         public string PassengerName { get; set; }
         public string PassengerPhoneNo { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
+
+        //Partial properties
+        public string SuggestPhoneNoFull => PassengerPhoneNo + (!string.IsNullOrEmpty(PassengerName) ? " - " + PassengerName : "");
     }
 }

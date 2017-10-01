@@ -25,13 +25,16 @@ namespace MVCWeb
             bundles.Add(new ScriptBundle("~/bundles/bookindex-js").Include(
                 "~/Content/datepicker/js/bootstrap-datepicker.js",
                 "~/Content/datepicker/js/bootstrap-datepicker.vi.js",
+                "~/Content/typeahead/typeahead.bundle.js",
                 "~/Scripts/views/book-index.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/bundles/bookindex-css").Include(
-                      "~/Content/datepicker/css/bootstrap-datepicker.min.css"));
+                      "~/Content/datepicker/css/bootstrap-datepicker.min.css",
+                      "~/Content/typeahead/typeahead-bootstrap.css"
+                      ));
             BundleTable.EnableOptimizations = true;
             
         }

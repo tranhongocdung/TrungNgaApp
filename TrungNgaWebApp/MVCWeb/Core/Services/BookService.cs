@@ -13,15 +13,32 @@ namespace MVCWeb.Core.Services
     {
         private readonly ITransportRepository _transportRepository;
         private readonly ITicketRepository _ticketRepository;
+        private readonly ISeatRepository _seatRepository;
         public BookService(
             ITransportRepository transportRepository,
-            ITicketRepository ticketRepository
+            ITicketRepository ticketRepository,
+            ISeatRepository seatRepository
             )
         {
             _transportRepository = transportRepository;
             _ticketRepository = ticketRepository;
+            _seatRepository = seatRepository;
         }
 
+        public Ticket GetTicket(int seatId, int transportId)
+        {
+            return
+                _ticketRepository.TableNoTracking
+                .Include(o => o.Passenger)
+                .Include(o => o.PickUpLocation)
+                .Include(o => o.CreatedBy)
+                .FirstOrDefault(o => o.TransportId == transportId && o.SeatId == seatId);
+        }
+
+        public List<Seat> GetSeats(IEnumerable<int> seatIds)
+        {
+            return _seatRepository.TableNoTracking.Where(o => seatIds.Contains(o.Id)).ToList();
+        } 
 
         public ICollection<SeatWithBookInfoDto> GetSeatWithBookInfos(int transportId)
         {

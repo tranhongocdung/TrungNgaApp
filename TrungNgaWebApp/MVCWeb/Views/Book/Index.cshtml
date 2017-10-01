@@ -59,7 +59,9 @@
 <div id="modal-container"></div>
 <input type="hidden" id="edit-bookinfo-url" value="@Url.Action("EditBookInfo", "Book")"/>
 <input type="hidden" id="book-seats-url" value="@Url.Action("BookSeats", "Book")" />
-<input type="hidden" id="reload-bookingcontainer-url" value="@Url.Action("LoadBookingContainer", "Book")" />
+<input type="hidden" id="reload-bookingcontainer-url" value="@Url.Action("LoadBookingContainer", "Book")"/>
+<input type="hidden" id="passenger-suggestion-datasource" value="@Url.Action("GetPassengerSuggestion", "DataSource")"/>
+<input type="hidden" id="pickuplocation-suggestion-datasource" value="@Url.Action("GetPickUpLocationSuggestion", "DataSource")" />
 @section OptionalCss
 {
     @Styles.Render("~/bundles/bookindex-css")

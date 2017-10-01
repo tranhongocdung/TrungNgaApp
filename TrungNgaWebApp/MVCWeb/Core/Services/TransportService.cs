@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using MVCWeb.Core.Entities;
 using MVCWeb.Core.IRepositories;
 using MVCWeb.Core.IServices;
 
@@ -22,6 +23,11 @@ namespace MVCWeb.Core.Services
             _transportRepository = transportRepository;
             _transportDirectionRepository = transportDirectionRepository;
         }
+
+        public Transport GetById(int transportId)
+        {
+            return _transportRepository.GetById(transportId);
+        }
         public DateTime GetLatestDateHavingTransport()
         {
             var latestTransport = _transportRepository.TableNoTracking.OrderByDescending(o => o.Id).FirstOrDefault();
@@ -40,7 +46,7 @@ namespace MVCWeb.Core.Services
         public ICollection<SelectListItem> GetTransportsForSelectList(int day, int month, int year)
         {
             var transports = _transportRepository.TableNoTracking
-                .Where(o=>o.Day == day && o.Month == month && o.Year == year).ToList();
+                .Where(o => o.Day == day && o.Month == month && o.Year == year).ToList();
             var list = new List<SelectListItem>();
             transports.ForEach(t =>
             {

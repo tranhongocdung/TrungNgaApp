@@ -7,6 +7,7 @@ namespace MVCWeb.Core.IServices
 {
     public interface ITransportService : IWebAppService
     {
+        Transport GetById(int transportId);
         DateTime GetLatestDateHavingTransport();
         ICollection<SelectListItem> GetTransportDirectionsForSelectList();
         ICollection<SelectListItem> GetTransportsForSelectList(int day, int month, int year);

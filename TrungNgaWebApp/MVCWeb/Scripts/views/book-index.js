@@ -62,8 +62,6 @@
 };
 
 
-
-
 var editMode;
 
 /*Constants*/
@@ -172,6 +170,7 @@ function bindSeatControls() {
             }
         }
     });
+
     $(".seat .button-panel .btn-book-seat").on("click", function (e) {
         var seat = $(this).closest(".seat");
         if (!seat.hasClass("selected")) {
@@ -185,6 +184,28 @@ function bindSeatControls() {
             },
             success: function () {
                 $("#btnReloadBookingContainer").click();
+            }
+        });
+    });
+
+    $(".seat .button-panel .btn-update-bookinfo").on("click", function (e) {
+        var seat = $(this).closest(".seat");
+        if (!seat.hasClass("selected")) {
+            seat.click();
+        }
+        $.ajax({
+            method: "POST",
+            url: $("#edit-bookinfo-url").val(),
+            data: {
+                clickedSeatId: seat.data("seat-id"),
+                seatListJson: JSON.stringify(selectedSeatList.data),
+                transportId: getCurrentTransport()
+            },
+            success: function (html) {
+                $("#modal-container").html(html);
+                $("#edit-bookinfo-modal").modal();
+                adjustElementsByScreenSize();
+                initBookInfoEdit();
             }
         });
     });
@@ -246,5 +267,72 @@ function editBookInfoEnd() {
 
 function getCurrentTransport() {
     return $("#ddlCurrentTransport").val();
+}
+
+function initBookInfoEdit() {
+    //Passenger PhoneNo
+    var passengers = new Bloodhound({
+        datumTokenizer: function (data) {
+            return Bloodhound.tokenizers.whitespace(data.PassengerPhoneNo);
+        },
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        remote: {
+            wildcard: "%QUERY",
+            url: $("#passenger-suggestion-datasource").val() + "?query=%QUERY",
+            transform: function (passengers) {
+                return $.map(passengers, function (passenger) {
+                    return passenger;
+                });
+            }
+        }
+    });
+
+    $("#txtPassengerPhoneNo").typeahead({
+        hint: false,
+        highlight: true,
+        minLength: 3
+    }, {
+        displayKey: "SuggestPhoneNoFull",
+        name: "passengers",
+        source: passengers
+    });
+
+    $("#txtPassengerPhoneNo").bind("typeahead:selected", function (obj, data) {
+        $(this).typeahead("val", data.PassengerPhoneNo);
+        $("#passenger-id").val(data.Id);
+        $("#txtPassengerName").val(data.PassengerName);
+    });
+
+    //Pickup Location
+    var pickUpLocations = new Bloodhound({
+        datumTokenizer: function (data) {
+            return Bloodhound.tokenizers.whitespace(data.Address);
+        },
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        remote: {
+            wildcard: "%QUERY",
+            url: $("#pickuplocation-suggestion-datasource").val() + "?query=%QUERY",
+            transform: function (pickUpLocations) {
+                return $.map(pickUpLocations, function (pickUpLocation) {
+                    return pickUpLocation;
+                });
+            }
+        }
+    });
+
+    $("#txtPickUpLocation").typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 3
+    }, {
+        displayKey: "Address",
+        name: "pickUpLocations",
+        source: pickUpLocations
+    });
+
+    $("#txtPickUpLocation").bind("typeahead:selected", function (obj, data) {
+        $(this).typeahead("val", data.Address);
+        $("#pickuplocation-id").val(data.Id);
+    });
 }
 

@@ -174,6 +174,9 @@
     <Compile Include="Core\EntityConfigs\TicketMapping.cs" />
     <Compile Include="Core\Enums\EnumCollection.cs" />
     <Compile Include="Core\FilterParams.cs" />
+    <Compile Include="Core\IRepositories\IPassengerRepository.cs" />
+    <Compile Include="Core\IRepositories\IPickUpLocationRepository.cs" />
+    <Compile Include="Core\IRepositories\ISeatRepository.cs" />
     <Compile Include="Core\IRepositories\ITicketRepository.cs" />
     <Compile Include="Core\IRepositories\ITransportRepository.cs" />
     <Compile Include="Core\IRepositories\ITransportDirectionRepository.cs" />
@@ -182,6 +185,9 @@
     <Compile Include="Core\IServices\ITransportService.cs" />
     <Compile Include="Core\IServices\IBookService.cs" />
     <Compile Include="Core\IServices\IWebAppService.cs" />
+    <Compile Include="Core\Repositories\PassengerRepository.cs" />
+    <Compile Include="Core\Repositories\PickUpLocationRepository.cs" />
+    <Compile Include="Core\Repositories\SeatRepository.cs" />
     <Compile Include="Core\Repositories\TicketRepository.cs" />
     <Compile Include="Core\Repositories\TransportRepository.cs" />
     <Compile Include="Core\Repositories\TransportDirectionRepository.cs" />
@@ -220,6 +226,7 @@
     <Compile Include="Libraries\Pager\ListPager.cs" />
     <Compile Include="Libraries\RemoveWhiteSpace.cs" />
     <Compile Include="Libraries\Utility.cs" />
+    <Compile Include="Models\BookEditViewModel.cs" />
     <Compile Include="Models\BookIndexViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
