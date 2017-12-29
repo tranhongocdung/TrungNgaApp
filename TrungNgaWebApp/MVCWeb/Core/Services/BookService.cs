@@ -6,6 +6,8 @@ using MVCWeb.Core.DtoForEntities;
 using MVCWeb.Core.Entities;
 using MVCWeb.Core.IRepositories;
 using MVCWeb.Core.IServices;
+using MVCWeb.Libraries;
+using MVCWeb.Models;
 
 namespace MVCWeb.Core.Services
 {
@@ -14,21 +16,59 @@ namespace MVCWeb.Core.Services
         private readonly ITransportRepository _transportRepository;
         private readonly ITicketRepository _ticketRepository;
         private readonly ISeatRepository _seatRepository;
+        private readonly IPassengerRepository _passengerRepository;
         public BookService(
             ITransportRepository transportRepository,
             ITicketRepository ticketRepository,
-            ISeatRepository seatRepository
+            ISeatRepository seatRepository,
+            IPassengerRepository passengerRepository
             )
         {
             _transportRepository = transportRepository;
             _ticketRepository = ticketRepository;
             _seatRepository = seatRepository;
+            _passengerRepository = passengerRepository;
+        }
+
+        public void UpdateBookInfo(BookEditViewModel model, int userId)
+        {
+            var seatIds = model.SeatIds.StringToIntList();
+            var passengerId = model.PassengerId;
+            if (passengerId <= 0)
+            {
+                passengerId = _passengerRepository.AddPassenger(model.PassengerName, model.PassengerPhoneNo);
+            }
+            seatIds.ForEach(seatId =>
+            {
+                var ticket = GetTicket(seatId, model.TransportId);
+                if (ticket != null)
+                {
+                    ticket.PassengerId = passengerId;
+                    ticket.IsPickUpAndGo = model.IsPickUpAndGo == 1;
+                    ticket.PaymentStatusId = model.PaymentStatus;
+                    ticket.Note = model.Note;
+                    _ticketRepository.Update(ticket);
+                }
+                else
+                {
+                    ticket = new Ticket
+                    {
+                        PassengerId = passengerId,
+                        IsPickUpAndGo = model.IsPickUpAndGo == 1,
+                        PaymentStatusId = model.PaymentStatus,
+                        Note = model.Note,
+                        CreatedDate = DateTime.Now,
+                        CreatedById = userId
+                };
+                    _ticketRepository.Insert(ticket);
+                }
+            });
         }
 
         public Ticket GetTicket(int seatId, int transportId)
         {
             return
-                _ticketRepository.TableNoTracking
+                _ticketRepository.Table
                 .Include(o => o.Passenger)
                 .Include(o => o.PickUpLocation)
                 .Include(o => o.CreatedBy)

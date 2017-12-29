@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVCWeb.Libraries
 {
-    public class Utility
+    public static class Utility
     {
         public static void SetSession(string sessionName, object sessionValue)
         {
@@ -18,6 +18,18 @@ namespace MVCWeb.Libraries
         public static object GetSession(string sessionName)
         {
             return HttpContext.Current.Session[sessionName];
+        }
+        public static List<int> StringToIntList(this string s)
+        {
+            if (s == null) return new List<int>();
+            try
+            {
+                return s.Split(',').Select(int.Parse).ToList();
+            }
+            catch (Exception)
+            {
+                return new List<int>();
+            }
         }
     }
 }

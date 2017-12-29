@@ -6,18 +6,21 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="modal-title">Cập nhật thông tin</h4>
             </div>
-            <div class="modal-body" id="modal-body">
-                @using (Ajax.BeginForm("DoEditBookInfo", "Book", new AjaxOptions
-                {
-                    InsertionMode = InsertionMode.Replace,
-                    HttpMethod = "POST",
-                    OnBegin = "editBookInfoBegin",
-                    OnSuccess = "editBookInfoEnd"
-                }, new { id = "frmBookInfoEdit" }))
-                {
-                    <input type="hidden" value="@Model.PassengerId" name="PassengerId" id="passenger-id" />
+            @using (Ajax.BeginForm("DoEditBookInfo", "Book", new AjaxOptions
+            {
+                InsertionMode = InsertionMode.Replace,
+                LoadingElementId = "edit-loader",
+                HttpMethod = "POST",
+                OnBegin = "editBookInfoBegin",
+                OnSuccess = "editBookInfoEnd"
+            }, new {id = "frmBookInfoEdit"}))
+            {
+                <div class="modal-body" id="modal-body">
+
+                    <input type="hidden" value="@Model.PassengerId" name="PassengerId" id="passenger-id"/>
                     <input type="hidden" value="@Model.PickUpLocationId" name="PickUpLocationId" id="pickuplocation-id">
                     <input type="hidden" value="@Model.SeatIds" name="SeatIds">
+                    <input type="hidden" value="@Model.TransportId" name="TransportId">
                     <div class="row">
                         <div class="col-md-1 col-sm-1 col-xs-12" style="padding-right: 5px">
                             <ul class="list-group seat-list">
@@ -131,25 +134,26 @@
                             </div>
                         </div>
                     </div>
-                }
-                <div id="edit-content" class="notification-container"></div>
-            </div>
-            <div class="modal-footer">
-                <div class="col-md-2 col-sm-2 col-xs-12">
-                    <img src="/Content/images/ajax-loader-3.gif" class="edit-loader" style="display: none" id="edit-loader" />
+
+                    <div id="edit-content" class="notification-container"></div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <button type="button" class="btn btn-block btn-success">Thêm vé</button>
+                <div class="modal-footer">
+                    <div class="col-md-2 col-sm-2 col-xs-12">
+                        <img src="/Content/images/ajax-loader-3.gif" class="edit-loader" style="display: none" id="edit-loader"/>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <button type="button" class="btn btn-block btn-danger">Hủy vé</button>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <button type="button" class="btn btn-block btn-success">Thêm vé</button>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <button type="button" class="btn btn-block btn-danger">Hủy vé</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <button type="submit" class="btn btn-block btn-primary" id="btnSave">Cập nhật</button>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <button type="submit" class="btn btn-block btn-primary" id="btnSave">Cập nhật</button>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>

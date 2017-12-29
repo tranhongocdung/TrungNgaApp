@@ -5,6 +5,7 @@ namespace MVCWeb.Models
 {
     public class BookEditViewModel
     {
+        public int TransportId { get; set; }
         public List<string> SeatLabels { get; set; }
         public string SeatIds { get; set; }
         public string TicketIds { get; set; }
@@ -22,5 +23,10 @@ namespace MVCWeb.Models
         //Select options
         public List<SelectListItem> PaymentStatusOptions { get; set; }
         public List<SelectListItem> PickUpAndGoOptions { get; set; }
+
+        public BookEditViewModel()
+        {
+            PassengerId = 0;
+        }
     }
 }

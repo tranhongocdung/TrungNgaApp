@@ -102,6 +102,8 @@ tr.shown td.details-control {
 .seat.booked.free-fee > div {background: #c1c0c0}
 .seat.booked .seat-label {background: #faffba}
 
+.edit-loader {margin-top: 12px}
+
 .modal-body .row {margin-top: 10px}
 .modal-footer button {margin-top: 10px}
 .modal-md {width: 765px; max-width: 96%; font-size: 12px}

@@ -178,6 +178,7 @@ function bindSeatControls() {
         }
         $(this).parent().find("img").show();
         $.ajax({
+            method: "POST",
             url: $("#book-seats-url").val(),
             data: {
                 seatListJson: JSON.stringify(selectedSeatList.data)
@@ -262,7 +263,7 @@ function editBookInfoBegin() {
 }
 
 function editBookInfoEnd() {
-
+    reloadBookingContainer();
 }
 
 function getCurrentTransport() {

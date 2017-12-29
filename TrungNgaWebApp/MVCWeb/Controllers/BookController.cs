@@ -78,9 +78,10 @@ namespace MVCWeb.Controllers
             };
             var model = new BookEditViewModel
             {
+                TransportId = transportId,
                 SeatIds = string.Join(",", seatIds),
                 SeatLabels = seatLabels.ToList(),
-                PassengerId = ticket.Id,
+                PassengerId = ticket.PassengerId ?? 0,
                 PassengerName = ticket.Passenger != null ? ticket.Passenger.PassengerName : "",
                 PassengerPhoneNo = ticket.Passenger != null ? ticket.Passenger.PassengerPhoneNo : "",
                 RunDate = transport.RunDate.ToString("dd/MM/yyyy"),
@@ -98,10 +99,11 @@ namespace MVCWeb.Controllers
         [HttpPost]
         public ActionResult DoEditBookInfo(BookEditViewModel model)
         {
-
+            _bookService.UpdateBookInfo(model, User.UserId);
             return Content("");
         }
 
+        [HttpPost]
         public ActionResult BookSeats(string seatListJson)
         {
             var seatList = JsonConvert.DeserializeObject<List<Ticket>>(seatListJson);
